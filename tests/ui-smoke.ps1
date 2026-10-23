@@ -153,7 +153,7 @@ try {
   T.btn('Submit',T.dlg()).click(); await T.wait(()=>!T.dlg()); await new Promise(r=>setTimeout(r,200));
   const after=document.querySelectorAll('#view .card > div > .table-wrap tbody tr:not(:has(td.empty))').length;
   const t=T.text();
-  return !listedSelf && gone && tags.join()==='Alpha Client / Ads' && pv.includes('`$5,000.50') && pv.includes('`$10,001.00') && after===before+2 && t.includes('Split equally across 2 projects') && (t.match(/`$5,000\.50/g)||[]).length>=2;
+  return !listedSelf && gone && tags.join()==='Alpha Client / Ads' && pv.includes('`$5,000.50') && pv.includes('`$10,001.00') && after===before+2 && t.includes('Split equally across 2 projects') && (t.match(/\`$5,000\.50/g)||[]).length>=2;
 })()
 "@ }
   Check 'existing cost split when edited; tag can be removed' { Invoke-Js @"
