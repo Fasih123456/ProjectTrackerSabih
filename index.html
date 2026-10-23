@@ -1,0 +1,41 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Engineered Plans Project Tracker</title>
+<link rel="icon" href="assets/mark.png">
+<link rel="stylesheet" href="css/app.css">
+</head>
+<body>
+<a class="skip-link" href="#view">Skip to content</a>
+<aside class="sidebar no-print" aria-label="Sidebar">
+  <a class="brand" href="#/dashboard" title="Dashboard">
+    <span id="brand-mark" class="brand-mark" aria-hidden="true"></span>
+    <img id="brand-logo" class="brand-logo" alt="Engineered Plans" hidden>
+    <span id="brand-text" class="brand-text"><span class="brand-name">Engineered Plans</span><span class="brand-sub">Project Tracker</span></span>
+  </a>
+  <nav id="sidenav" class="sidenav" aria-label="Main navigation"></nav>
+  <nav id="sidefoot" class="sidefoot" aria-label="Utilities"></nav>
+</aside>
+<div class="shell">
+  <header class="topbar no-print">
+    <div class="topbar-left">
+      <label class="goto"><span class="sr-only">Go to</span>
+        <select id="goto" aria-label="Go to screen"></select>
+      </label>
+      <button type="button" class="btn" id="export-btn" title="Download this screen's figures as a CSV file" disabled></button>
+      <button type="button" class="btn btn-primary" id="backup-btn" title="Download a full backup file"></button>
+    </div>
+    <div class="topbar-right header-actions" id="header-right">
+      <a id="header-result" class="header-result" href="#/dashboard" title="Net result before owner salary, all time" hidden></a>
+    </div>
+  </header>
+  <div id="banners" class="banners"></div>
+  <main id="view" class="view" tabindex="-1"><p class="muted">Opening the local database…</p></main>
+</div>
+<div id="toasts" class="toasts no-print" aria-live="polite"></div>
+<noscript>JavaScript is required for the Project Tracker.</noscript>
+<script type="module" src="js/ui/app.js"></script>
+</body>
+</html>

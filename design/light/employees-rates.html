@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="en" class="h-full">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Employees &amp; Rates | Executive FinTrack</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script>
+  tailwind.config = {
+    theme: {
+      extend: {
+        fontFamily: {
+          sans: ['Inter', 'system-ui', 'sans-serif'],
+          display: ['"Plus Jakarta Sans"', 'Inter', 'sans-serif'],
+          mono: ['"JetBrains Mono"', 'ui-monospace', 'monospace'],
+        },
+        boxShadow: {
+          card: '0 1px 3px 0 rgba(15,23,42,0.04), 0 1px 2px -1px rgba(15,23,42,0.02)',
+          pop: '0 10px 15px -3px rgba(15,23,42,0.08), 0 4px 6px -4px rgba(15,23,42,0.04)',
+        },
+      },
+    },
+  };
+</script>
+<style>
+  :root { color-scheme: light; }
+  .tnum { font-feature-settings: "tnum" 1, "cv05" 1; }
+  .field { height: 36px; border: 1px solid #CBD5E1; background: #fff; color: #0F172A; border-radius: 6px; font-size: 13px; transition: border-color .15s, box-shadow .15s; }
+  .field::placeholder { color: #94A3B8; }
+  .field:focus { border-color: #0D9488; box-shadow: 0 0 0 3px rgba(13,148,136,.2); outline: none; }
+</style>
+</head>
+<body class="min-h-full bg-slate-50 text-slate-900 font-sans antialiased selection:bg-teal-100 selection:text-teal-900 px-4 md:px-6 xl:px-8 2xl:px-12 py-8">
+<main class="w-full max-w-[1920px] mx-auto flex flex-col gap-6">
+
+  <!-- Header -->
+  <header class="flex flex-col xl:flex-row xl:items-start justify-between gap-6 pb-6 border-b border-slate-200">
+    <div class="space-y-2 max-w-4xl">
+      <div class="flex flex-wrap items-center gap-3">
+        <div class="w-1 h-8 bg-teal-600 rounded-full"></div>
+        <h1 class="font-display text-2xl sm:text-[32px] sm:leading-10 font-bold tracking-tight text-slate-900">Employees &amp; Rates</h1>
+        <span class="inline-flex items-center h-[22px] px-2 rounded text-xs font-semibold bg-slate-100 text-slate-600 border border-slate-200">Payroll Master</span>
+      </div>
+      <p class="text-sm leading-relaxed text-slate-500">
+        Employees, their monthly salary and rates. From the join date, the salary is added automatically as a cost under Team Salaries (or Owners Salary) on the last day of each month worked; the first and last months are paid for the days worked. The default hourly value (salary ÷ reference hours) is used for time value.
+      </p>
+    </div>
+    <div class="flex flex-wrap items-center gap-3 self-start shrink-0">
+      <button type="button" class="inline-flex items-center gap-2 h-9 px-4 rounded-md text-sm font-semibold text-slate-900 bg-white border border-slate-300 hover:bg-slate-100 shadow-sm transition focus:outline-none focus:ring-[3px] focus:ring-teal-600/20">
+        <svg class="w-4 h-4 text-slate-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"/></svg>
+        Export CSV
+      </button>
+      <button type="button" class="inline-flex items-center gap-1.5 h-9 px-4 rounded-md text-sm font-semibold text-white bg-teal-600 hover:bg-teal-700 shadow-sm transition focus:outline-none focus:ring-[3px] focus:ring-teal-600/25">
+        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M12 4v16m8-8H4" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5"/></svg>
+        Add employee
+      </button>
+    </div>
+  </header>
+
+  <!-- KPIs -->
+  <section aria-label="Executive KPI Overview" class="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-4 gap-4 xl:gap-5">
+    <div class="bg-white border border-slate-200 border-l-[3px] border-l-teal-600 rounded-lg p-5 shadow-card">
+      <div class="flex items-center justify-between">
+        <span class="text-[11px] font-semibold uppercase tracking-[0.04em] text-slate-500">Total Team Members</span>
+        <span class="p-1.5 rounded-md bg-teal-50 text-teal-700">
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"/></svg>
+        </span>
+      </div>
+      <div class="mt-3 flex items-baseline gap-2">
+        <span class="font-display text-2xl font-semibold text-slate-900 tnum">3</span>
+        <span class="inline-flex items-center h-[22px] px-2 rounded text-xs font-medium bg-emerald-50 text-emerald-800 border border-emerald-200">Active</span>
+      </div>
+      <p class="mt-2 text-[13px] text-slate-500">100% headcount accounted</p>
+    </div>
+
+    <div class="bg-white border border-slate-200 border-l-[3px] border-l-slate-700 rounded-lg p-5 shadow-card">
+      <div class="flex items-center justify-between">
+        <span class="text-[11px] font-semibold uppercase tracking-[0.04em] text-slate-500">Total Monthly Payroll</span>
+        <span class="p-1.5 rounded-md bg-slate-100 text-slate-600">
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"/></svg>
+        </span>
+      </div>
+      <div class="mt-3 font-display text-2xl font-semibold text-slate-900 tnum">PKR 380,000.00</div>
+      <p class="mt-2 text-[13px] text-slate-500">Team Salaries monthly pool</p>
+    </div>
+
+    <div class="bg-white border border-slate-200 border-l-[3px] border-l-violet-500 rounded-lg p-5 shadow-card">
+      <div class="flex items-center justify-between">
+        <span class="text-[11px] font-semibold uppercase tracking-[0.04em] text-slate-500">Total Reference Hours</span>
+        <span class="p-1.5 rounded-md bg-violet-50 text-violet-600">
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"/></svg>
+        </span>
+      </div>
+      <div class="mt-3 flex items-baseline gap-1">
+        <span class="font-display text-2xl font-semibold text-slate-900 tnum">320.00</span>
+        <span class="text-xs font-medium text-slate-500">hrs/mo</span>
+      </div>
+      <p class="mt-2 text-[13px] text-slate-500">Capacity baseline allocation</p>
+    </div>
+
+    <div class="bg-white border border-slate-200 border-l-[3px] border-l-amber-500 rounded-lg p-5 shadow-card">
+      <div class="flex items-center justify-between">
+        <span class="text-[11px] font-semibold uppercase tracking-[0.04em] text-slate-500">Average Hourly Cost</span>
+        <span class="p-1.5 rounded-md bg-amber-50 text-amber-600">
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"/></svg>
+        </span>
+      </div>
+      <div class="mt-3 flex items-baseline gap-1">
+        <span class="font-display text-2xl font-semibold text-slate-900 tnum">PKR 1,187.50</span>
+        <span class="text-xs font-medium text-slate-500">/ hr</span>
+      </div>
+      <p class="mt-2 text-[13px] text-slate-500">Blended corporate cost rate</p>
+    </div>
+  </section>
+
+  <!-- Table card -->
+  <section class="bg-white border border-slate-200 rounded-lg shadow-card overflow-hidden flex flex-col">
+    <div class="p-4 border-b border-slate-200 flex flex-col md:flex-row items-stretch md:items-center justify-between gap-4">
+      <div class="flex flex-wrap items-center gap-4 sm:gap-6">
+        <div class="relative w-full sm:w-80">
+          <svg class="absolute left-2.5 top-1/2 -translate-y-1/2 w-4 h-4 text-slate-400 pointer-events-none" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"/></svg>
+          <input type="text" aria-label="Search employees table" placeholder="Search..." class="field w-full pl-8 pr-3"/>
+        </div>
+        <label class="inline-flex items-center gap-2 cursor-pointer text-sm font-medium text-slate-600 hover:text-slate-900 select-none">
+          <input type="checkbox" class="w-4 h-4 rounded border-slate-300 text-teal-600 focus:ring-teal-600/30"/>
+          Show archived
+        </label>
+      </div>
+      <span class="inline-flex items-center self-end md:self-auto h-[22px] px-2 rounded text-xs font-medium bg-slate-100 text-slate-600 border border-slate-200 tnum">3 records</span>
+    </div>
+
+    <div class="overflow-x-auto">
+      <table id="employees-table" class="w-full min-w-[1240px] text-left border-collapse text-sm">
+        <thead>
+          <tr class="bg-slate-50 border-b border-slate-200 text-[11px] font-semibold uppercase tracking-[0.04em] text-slate-500">
+            <th scope="col" class="py-3 pl-5 pr-4 whitespace-nowrap">Employee</th>
+            <th scope="col" class="py-3 px-4 text-right whitespace-nowrap">Monthly Salary</th>
+            <th scope="col" class="py-3 px-4 text-center whitespace-nowrap">
+              <button type="button" class="inline-flex items-center gap-1 uppercase hover:text-slate-900">
+                Join Date
+                <svg class="w-3 h-3 text-slate-400" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" clip-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"/></svg>
+              </button>
+            </th>
+            <th scope="col" class="py-3 px-4 text-center whitespace-nowrap">Leave Date</th>
+            <th scope="col" class="py-3 px-4 whitespace-nowrap">Charged To</th>
+            <th scope="col" class="py-3 px-4 text-right whitespace-nowrap">Reference Hours</th>
+            <th scope="col" class="py-3 px-4 text-right whitespace-nowrap">Default Hourly Value</th>
+            <th scope="col" class="py-3 px-4 whitespace-nowrap">Rate Notes</th>
+            <th scope="col" class="py-3 px-4 whitespace-nowrap">Status</th>
+            <th scope="col" class="py-3 pl-4 pr-5 text-right whitespace-nowrap">Actions</th>
+          </tr>
+        </thead>
+        <tbody id="employee-rows"></tbody>
+      </table>
+    </div>
+
+    <div class="px-5 py-3 bg-slate-50 border-t border-slate-200 flex flex-col sm:flex-row items-center justify-between gap-3 text-[13px] text-slate-500">
+      <div class="flex items-center gap-2">
+        <svg class="w-4 h-4 text-teal-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"/></svg>
+        All salary figures reflect current baseline currency configurations (PKR).
+      </div>
+      <div class="flex items-center gap-1.5 text-slate-500">
+        <span class="w-1.5 h-1.5 rounded-full bg-emerald-500"></span>
+        Sync status: Up to date
+      </div>
+    </div>
+  </section>
+</main>
+
+<script>
+  // Mock rows (static sample data matching the original design)
+  const employees = [
+    { name: 'Aisha',  initials: 'AI', id: 'EMP-00101', salary: 'PKR 30,000.00',  hours: '80.00',  hourly: 'PKR 375.00',   avatar: 'bg-rose-50 text-rose-700 ring-rose-200' },
+    { name: 'Ayesha', initials: 'AY', id: 'EMP-00102', salary: 'PKR 30,000.00',  hours: '80.00',  hourly: 'PKR 375.00',   avatar: 'bg-violet-50 text-violet-700 ring-violet-200' },
+    { name: 'Fasih',  initials: 'FA', id: 'EMP-00103', salary: 'PKR 320,000.00', hours: '160.00', hourly: 'PKR 2,000.00', avatar: 'bg-teal-50 text-teal-700 ring-teal-200' },
+  ];
+  const icons = {
+    edit: '<path d="M15.232 5.232l3.536 3.536m-2.036-5.036a2.5 2.5 0 113.536 3.536L6.5 21.036H3v-3.572L16.732 3.732z" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"/>',
+    archive: '<path d="M5 8h14M5 8a2 2 0 110-4h14a2 2 0 110 4M5 8v10a2 2 0 002 2h10a2 2 0 002-2V8m-9 4h4" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"/>',
+    del: '<path d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"/>',
+  };
+  const svg = p => `<svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">${p}</svg>`;
+  const btn = 'inline-flex items-center gap-1 h-7 px-2.5 text-xs font-medium rounded-md bg-white border transition';
+  document.getElementById('employee-rows').innerHTML = employees.map(e => `
+    <tr class="border-b border-slate-100 last:border-b-0 hover:bg-[#FAFAFA] transition-colors group">
+      <td class="py-3 pl-5 pr-4 whitespace-nowrap">
+        <div class="flex items-center gap-3">
+          <div class="h-8 w-8 rounded-full ring-1 ${e.avatar} flex items-center justify-center text-[11px] font-semibold">${e.initials}</div>
+          <div>
+            <div class="font-medium text-slate-900 group-hover:text-teal-700 transition-colors">${e.name}</div>
+            <div class="text-xs text-slate-500 tnum">ID: ${e.id}</div>
+          </div>
+        </div>
+      </td>
+      <td class="py-3 px-4 text-right tnum font-medium text-slate-900 whitespace-nowrap">${e.salary}</td>
+      <td class="py-3 px-4 text-center text-slate-400">—</td>
+      <td class="py-3 px-4 text-center text-slate-400">—</td>
+      <td class="py-3 px-4 whitespace-nowrap">
+        <span class="inline-flex items-center h-[22px] px-2 rounded text-xs font-medium bg-slate-100 text-slate-600 border border-slate-200">Team Salaries</span>
+      </td>
+      <td class="py-3 px-4 text-right tnum text-slate-700">${e.hours}</td>
+      <td class="py-3 px-4 text-right tnum font-medium text-teal-700 whitespace-nowrap">${e.hourly}</td>
+      <td class="py-3 px-4 text-slate-400">—</td>
+      <td class="py-3 px-4 whitespace-nowrap">
+        <span class="inline-flex items-center gap-1.5 h-[22px] px-2 rounded text-xs font-medium bg-amber-50 text-amber-800 border border-amber-200">
+          <span class="h-1.5 w-1.5 rounded-full bg-amber-500"></span>
+          Active · no join date (salary not paid)
+        </span>
+      </td>
+      <td class="py-3 pl-4 pr-5 text-right whitespace-nowrap">
+        <div class="inline-flex items-center gap-1.5">
+          <button type="button" class="${btn} border-slate-300 text-slate-700 hover:bg-slate-100 hover:text-slate-900">${svg(icons.edit)} Edit</button>
+          <button type="button" class="${btn} border-slate-300 text-slate-700 hover:bg-slate-100 hover:text-slate-900">${svg(icons.archive)} Archive</button>
+          <button type="button" class="${btn} border-red-200 text-red-700 hover:bg-red-50">${svg(icons.del)} Delete</button>
+        </div>
+      </td>
+    </tr>`).join('');
+</script>
+</body>
+</html>

@@ -1,0 +1,7 @@
+# Runtime token written by the launcher
+launcher/.server-token
+
+# Real business data exports and backups - never commit
+import-files/
+engineeredplans-tracker-backup_*.json
+*.accdb

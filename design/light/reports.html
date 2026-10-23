@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="en" class="h-full">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Reports Directory | Executive FinTrack Slate</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script>
+  tailwind.config = {
+    theme: {
+      extend: {
+        fontFamily: {
+          sans: ['Inter', 'system-ui', 'sans-serif'],
+          display: ['"Plus Jakarta Sans"', 'Inter', 'sans-serif'],
+          mono: ['"JetBrains Mono"', 'ui-monospace', 'monospace'],
+        },
+        boxShadow: {
+          card: '0 1px 3px 0 rgba(15,23,42,0.04), 0 1px 2px -1px rgba(15,23,42,0.02)',
+          pop: '0 10px 15px -3px rgba(15,23,42,0.08), 0 4px 6px -4px rgba(15,23,42,0.04)',
+        },
+      },
+    },
+  };
+</script>
+<style>
+  :root { color-scheme: light; }
+  .tnum { font-feature-settings: "tnum" 1, "cv05" 1; }
+  .lift { transition: transform .2s cubic-bezier(.16,1,.3,1), box-shadow .2s, border-color .2s; }
+  .lift:hover { transform: translateY(-1px); box-shadow: 0 10px 15px -3px rgba(15,23,42,0.08), 0 4px 6px -4px rgba(15,23,42,0.04); }
+  .lift:focus-visible { outline: none; box-shadow: 0 0 0 3px rgba(13,148,136,.15); border-color: #0D9488; }
+</style>
+</head>
+<body class="min-h-full bg-slate-50 text-slate-900 font-sans antialiased selection:bg-teal-100 selection:text-teal-900 px-4 md:px-6 xl:px-8 2xl:px-12 py-8">
+<main class="w-full max-w-[2400px] mx-auto flex flex-col gap-10">
+
+  <!-- Header -->
+  <header class="border-b border-slate-200 pb-6 flex flex-col xl:flex-row xl:items-end justify-between gap-6">
+    <div class="space-y-2">
+      <div class="inline-flex items-center gap-2 h-[22px] px-2.5 rounded-full bg-white border border-slate-200 text-xs font-medium text-slate-600 shadow-card">
+        <span class="w-1.5 h-1.5 rounded-full bg-teal-500"></span>
+        Financial Intelligence &amp; Data Pipeline
+      </div>
+      <h1 class="font-display text-2xl sm:text-[32px] sm:leading-10 font-bold tracking-tight text-slate-900">Reports</h1>
+      <p class="text-sm leading-relaxed text-slate-500 max-w-4xl">
+        All reports are calculated live from the stored records. Each can be filtered, sorted, exported to CSV and printed or saved as PDF.
+      </p>
+    </div>
+    <div class="flex flex-wrap items-center gap-3 self-start xl:self-end">
+      <button type="button" class="inline-flex items-center gap-2 h-9 px-4 rounded-md text-sm font-semibold text-slate-900 bg-white border border-slate-300 hover:bg-slate-100 shadow-sm transition focus:outline-none focus:ring-[3px] focus:ring-teal-600/20">
+        <svg class="w-4 h-4 text-slate-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M3 4a1 1 0 011-1h16a1 1 0 011 1v2.586a1 1 0 01-.293.707l-6.414 6.414a1 1 0 00-.293.707V17l-4 4v-6.586a1 1 0 00-.293-.707L3.293 7.293A1 1 0 013 6.586V4z" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"/></svg>
+        Quick filter
+      </button>
+      <button type="button" class="inline-flex items-center gap-2 h-9 px-4 rounded-md text-sm font-semibold text-slate-900 bg-white border border-slate-300 hover:bg-slate-100 shadow-sm transition focus:outline-none focus:ring-[3px] focus:ring-teal-600/20">
+        <svg class="w-4 h-4 text-slate-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"/></svg>
+        Export batch
+      </button>
+    </div>
+  </header>
+
+  <!-- Summary -->
+  <section class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 xl:gap-5">
+    <div class="bg-white border border-slate-200 border-l-[3px] border-l-teal-600 rounded-lg p-5 shadow-card">
+      <div class="flex items-center justify-between">
+        <span class="text-[11px] font-semibold uppercase tracking-[0.04em] text-slate-500">Catalog Category</span>
+        <span class="p-1.5 rounded-md bg-teal-50 text-teal-700"><svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M9 17v-2m3 2v-4m3 4v-6m2 10H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"/></svg></span>
+      </div>
+      <div class="mt-3 font-display text-2xl font-semibold text-slate-900">5 Specialized Views</div>
+      <p class="mt-2 text-[13px] text-slate-500">Aggregated business calculations &amp; statements</p>
+    </div>
+    <div class="bg-white border border-slate-200 border-l-[3px] border-l-sky-500 rounded-lg p-5 shadow-card">
+      <div class="flex items-center justify-between">
+        <span class="text-[11px] font-semibold uppercase tracking-[0.04em] text-slate-500">Granular Queries</span>
+        <span class="p-1.5 rounded-md bg-sky-50 text-sky-700"><svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M4 7v10c0 2.21 3.582 4 8 4s8-1.79 8-4V7M4 7c0 2.21 3.582 4 8 4s8-1.79 8-4M4 7c0-2.21 3.582-4 8-4s8 1.79 8 4m0 5c0 2.21-3.582 4-8 4s-8-1.79-8-4" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"/></svg></span>
+      </div>
+      <div class="mt-3 font-display text-2xl font-semibold text-slate-900">8 Data Tables</div>
+      <p class="mt-2 text-[13px] text-slate-500">Direct row-level query ledgers &amp; audits</p>
+    </div>
+    <div class="bg-white border border-slate-200 border-l-[3px] border-l-amber-500 rounded-lg p-5 shadow-card">
+      <div class="flex items-center justify-between">
+        <span class="text-[11px] font-semibold uppercase tracking-[0.04em] text-slate-500">Output Channels</span>
+        <span class="p-1.5 rounded-md bg-amber-50 text-amber-600"><svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M17 17h2a2 2 0 002-2v-4a2 2 0 00-2-2H5a2 2 0 00-2 2v4a2 2 0 002 2h2m2 4h6a2 2 0 002-2v-4a2 2 0 00-2-2H9a2 2 0 00-2 2v4a2 2 0 002 2zm8-12V5a2 2 0 00-2-2H9a2 2 0 00-2 2v4h10z" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"/></svg></span>
+      </div>
+      <div class="mt-3 font-display text-2xl font-semibold text-slate-900">CSV &amp; Print / PDF</div>
+      <p class="mt-2 text-[13px] text-slate-500">Native formatted export &amp; print layouts</p>
+    </div>
+    <div class="bg-white border border-slate-200 border-l-[3px] border-l-emerald-500 rounded-lg p-5 shadow-card">
+      <div class="flex items-center justify-between">
+        <span class="text-[11px] font-semibold uppercase tracking-[0.04em] text-slate-500">Computation State</span>
+        <span class="inline-flex items-center h-[22px] px-2 rounded text-xs font-medium bg-emerald-50 text-emerald-800 border border-emerald-200">Active</span>
+      </div>
+      <div class="mt-3 font-display text-2xl font-semibold text-slate-900">Live In-Memory</div>
+      <p class="mt-2 text-[13px] text-slate-500">Real-time sync against persistent datastore</p>
+    </div>
+  </section>
+
+  <!-- Formatted reports -->
+  <section class="flex flex-col gap-5">
+    <div class="flex items-center justify-between border-b border-slate-200 pb-3">
+      <div class="flex items-center gap-3">
+        <span class="w-2 h-2 rounded-full bg-teal-600"></span>
+        <h2 class="font-display text-lg font-semibold text-slate-900">Formatted reports</h2>
+        <span class="inline-flex items-center h-[22px] px-2 rounded text-xs font-medium bg-slate-100 text-slate-600 border border-slate-200">5 core formats</span>
+      </div>
+      <span class="text-[13px] text-slate-500 hidden sm:inline">Executive roll-ups &amp; margin calculations</span>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-4 xl:gap-5" id="formatted-reports"></div>
+  </section>
+
+  <!-- Query views -->
+  <section class="flex flex-col gap-5">
+    <div class="flex items-center justify-between border-b border-slate-200 pb-3">
+      <div class="flex items-center gap-3">
+        <span class="w-2 h-2 rounded-full bg-sky-500"></span>
+        <h2 class="font-display text-lg font-semibold text-slate-900">Query views</h2>
+        <span class="inline-flex items-center h-[22px] px-2 rounded text-xs font-medium bg-slate-100 text-slate-600 border border-slate-200">8 data sets</span>
+      </div>
+      <span class="text-[13px] text-slate-500 hidden sm:inline">Normalized ledger tables &amp; date audits</span>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4 xl:gap-5" id="query-views"></div>
+  </section>
+
+  <footer class="pt-6 border-t border-slate-200 flex flex-col md:flex-row items-center justify-between gap-4 text-xs text-slate-500">
+    <div class="flex flex-wrap items-center gap-3">
+      <span>Executive FinTrack Slate Engine</span><span class="text-slate-300">•</span>
+      <span>In-Memory Analytics v3.8</span><span class="text-slate-300">•</span>
+      <span>Zero Storage Rewrite Policy</span>
+    </div>
+    <div>Calculations executed on read-only transaction state.</div>
+  </footer>
+</main>
+
+<script>
+  // Static card content (same copy as the original design)
+  const arrow = '<svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M14 5l7 7m0 0l-7 7m7-7H3" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"/></svg>';
+  const lock = '<svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"/></svg>';
+  const chevron = '<svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M9 5l7 7-7 7" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"/></svg>';
+
+  const formatted = [
+    { tag: 'Performance', tagCls: 'bg-teal-50 text-teal-700 border-teal-200', title: 'Project Performance — All Months', body: 'Client projects only. Actual result = paid income – project costs – earned sales fees. Time value is analytical and does not reduce the actual result or margin.', foot: 'Aggregated by project' },
+    { tag: 'Financial Ledger', title: 'Company Totals — Cost Breakdown', body: 'All recorded income minus every recorded cost and every earned sales fee; each counted once. Analytical time value is excluded. Owner salary is shown separately.', foot: 'Global totals' },
+    { tag: 'Sales Comp', title: 'Sales Team — Commissions', body: 'Earned = ordinary activity earnings + 180-day acquisition commission. Paid out = legacy activity CommissionPaid + sales payouts. Owed = earned – paid out (negative = advance/overpayment).', foot: 'By salesperson' },
+    { tag: '180-Day Window', title: 'Client Acquisition — Commission Detail', body: 'One line per eligible Income record: client projects, income StartDate on or after the acquisition date and before the exclusive stop date (acquisition date + 180 days). Commission rounded to 4 decimals per line.', foot: 'Itemized lineage' },
+  ];
+  const neutralTag = 'bg-slate-100 text-slate-600 border-slate-200';
+
+  document.getElementById('formatted-reports').innerHTML = formatted.map(r => `
+    <article tabindex="0" class="lift group bg-white border border-slate-200 hover:border-teal-600/50 rounded-lg p-5 flex flex-col justify-between shadow-card cursor-pointer">
+      <div class="space-y-3">
+        <div class="flex items-start justify-between gap-2">
+          <span class="inline-flex items-center h-[22px] px-2 rounded text-[11px] font-semibold uppercase tracking-[0.03em] border ${r.tagCls || neutralTag}">${r.tag}</span>
+          <span class="text-slate-400 group-hover:text-teal-600 transition">${arrow}</span>
+        </div>
+        <h3 class="font-display text-[18px] leading-[26px] font-semibold text-slate-900 group-hover:text-teal-700 transition">${r.title}</h3>
+        <p class="text-sm leading-relaxed text-slate-500">${r.body}</p>
+      </div>
+      <div class="pt-4 mt-5 border-t border-slate-100 flex items-center justify-between text-xs font-medium">
+        <span class="text-slate-500">${r.foot}</span>
+        <span class="text-teal-700 group-hover:underline">Open view →</span>
+      </div>
+    </article>`).join('') + `
+    <article tabindex="0" class="lift group bg-red-50/60 border border-red-200 hover:border-red-300 rounded-lg p-5 flex flex-col justify-between shadow-card cursor-pointer">
+      <div class="space-y-3">
+        <div class="flex items-start justify-between gap-2">
+          <span class="inline-flex items-center h-[22px] px-2 rounded text-[11px] font-semibold uppercase tracking-[0.06em] bg-red-50 text-red-800 border border-red-200">Confidential</span>
+          <span class="text-red-500">${lock}</span>
+        </div>
+        <h3 class="font-display text-[18px] leading-[26px] font-semibold text-slate-900 group-hover:text-red-800 transition">Employee Bank Details</h3>
+        <p class="text-sm leading-relaxed text-red-900/80">CONFIDENTIAL — employee banking information. Keep this report private. Includes employees with missing details.</p>
+      </div>
+      <div class="pt-4 mt-5 border-t border-red-200/70 flex items-center justify-between text-xs font-medium">
+        <span class="text-red-700/80">Restricted access</span>
+        <span class="text-red-700 group-hover:underline">Open secure view →</span>
+      </div>
+    </article>`;
+
+  const queries = [
+    { title: 'Monthly Client Performance', body: 'Client projects by month. Months come from income start dates, work dates, cost start dates and sales activity dates, so cost-only and time-only months are kept.', foot: 'Granularity: Monthly' },
+    { title: 'Income by Date', body: 'Paid income, recognised in full on its StartDate. EndDate is descriptive only (no proration).', foot: 'Granularity: Daily' },
+    { title: 'Hours by Date', body: 'Time entries by WorkDate. Effective hourly value = rate override if set, else monthly salary ÷ reference hours. Time value is analytical; salaries are recorded as costs.', foot: 'Analytical valuations' },
+    { title: 'Costs by Start Date', body: 'Recorded costs, counted in full on their StartDate. EndDate does not spread the cost or create future bills.', foot: 'Single recognition' },
+    { title: 'Sales Activities by Date', body: 'Earned per activity. "Legacy paid" is the old per-activity CommissionPaid field; the activity-level balance is not the salesperson\'s total outstanding (see Sales Team — Commissions).', foot: 'Activity audits' },
+    { title: 'Sales Payouts by Date', body: 'Commission payments to salespeople, by PayoutDate. Payouts settle commission owed; they are not deducted from profit a second time.', foot: 'Settlement log' },
+    { title: 'Monthly Project Summary — Detailed', body: 'Every project, including internal cost centres, by month. After-time and margin are unavailable (—) where they do not apply.', foot: 'Includes cost centres' },
+  ];
+
+  document.getElementById('query-views').innerHTML = queries.map((q, i) => `
+    <article tabindex="0" class="lift group bg-white border border-slate-200 hover:border-sky-500/50 rounded-lg p-5 flex flex-col justify-between shadow-card cursor-pointer">
+      <div class="space-y-2.5">
+        <div class="flex items-center justify-between">
+          <span class="text-xs font-mono font-medium text-slate-500">QUERY.${String(i + 1).padStart(2, '0')}</span>
+          <span class="text-slate-400 group-hover:text-sky-600 transition">${chevron}</span>
+        </div>
+        <h3 class="text-base font-semibold text-slate-900">${q.title}</h3>
+        <p class="text-[13px] leading-[18px] text-slate-500">${q.body}</p>
+      </div>
+      <div class="mt-4 pt-3 border-t border-slate-100 flex items-center justify-between text-[11px] font-medium">
+        <span class="text-slate-500">${q.foot}</span>
+        <span class="text-sky-700 group-hover:underline">Run query →</span>
+      </div>
+    </article>`).join('') + `
+    <article tabindex="0" class="lift group bg-amber-50/60 border border-amber-200 hover:border-amber-300 rounded-lg p-5 flex flex-col justify-between shadow-card cursor-pointer">
+      <div class="space-y-2.5">
+        <div class="flex items-center justify-between">
+          <span class="text-xs font-mono font-medium text-amber-800">QUERY.08 • AUDIT</span>
+          <span class="relative flex w-2 h-2"><span class="absolute inline-flex h-full w-full rounded-full bg-amber-400 opacity-60 animate-ping"></span><span class="relative inline-flex w-2 h-2 rounded-full bg-amber-500"></span></span>
+        </div>
+        <h3 class="text-base font-semibold text-slate-900">Data Quality</h3>
+        <p class="text-[13px] leading-[18px] text-slate-600">Problems found in stored records (usually imported data). Nothing is rewritten automatically — open the record to review and fix it.</p>
+      </div>
+      <div class="mt-4 pt-3 border-t border-amber-200/70 flex items-center justify-between text-[11px] font-medium">
+        <span class="text-amber-800/80">Integrity diagnostic</span>
+        <span class="text-amber-800 group-hover:underline">Review anomalies →</span>
+      </div>
+    </article>`;
+</script>
+</body>
+</html>

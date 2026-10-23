@@ -1,0 +1,23 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Project Tracker tests</title>
+<style>body{font:14px/1.5 Consolas,monospace;margin:20px;background:#f4f7f8;color:#17252b}pre{white-space:pre-wrap}</style>
+</head>
+<body>
+<h1>Project Tracker — automated tests</h1>
+<p>Uses isolated <code>engineeredplans_test_*</code> databases that are deleted afterwards. Your live data is never touched.</p>
+<pre id="results">Running…</pre>
+<script type="module">
+  import { run } from './harness.js';
+  import './unit.test.js';
+  import './salary.test.js';
+  import './fx.test.js';
+  import './attachments.test.js';
+  import { cleanupTestDBs } from './db.test.js';
+  await run();
+  await cleanupTestDBs();
+</script>
+</body>
+</html>

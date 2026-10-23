@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="en" class="h-full">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Employee Activities - Executive FinTrack Slate</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script>
+  tailwind.config = {
+    theme: {
+      extend: {
+        fontFamily: {
+          sans: ['Inter', 'system-ui', 'sans-serif'],
+          display: ['"Plus Jakarta Sans"', 'Inter', 'sans-serif'],
+          mono: ['"JetBrains Mono"', 'ui-monospace', 'monospace'],
+        },
+        boxShadow: {
+          card: '0 1px 3px 0 rgba(15,23,42,0.04), 0 1px 2px -1px rgba(15,23,42,0.02)',
+          pop: '0 10px 15px -3px rgba(15,23,42,0.08), 0 4px 6px -4px rgba(15,23,42,0.04)',
+        },
+      },
+    },
+  };
+</script>
+<style>
+  :root { color-scheme: light; }
+  .tnum { font-feature-settings: "tnum" 1, "cv05" 1; }
+  .field { height: 36px; border: 1px solid #CBD5E1; background: #fff; color: #0F172A; border-radius: 6px; font-size: 13px; transition: border-color .15s, box-shadow .15s; }
+  .field::placeholder { color: #94A3B8; }
+  .field:focus { border-color: #0D9488; box-shadow: 0 0 0 3px rgba(13,148,136,.2); outline: none; }
+</style>
+</head>
+<body class="min-h-full bg-slate-50 text-slate-900 font-sans antialiased selection:bg-teal-100 selection:text-teal-900">
+<div class="w-full min-h-screen px-4 md:px-6 xl:px-8 2xl:px-12 py-8 flex flex-col gap-6">
+
+  <!-- Header -->
+  <header class="flex flex-col lg:flex-row lg:items-center lg:justify-between gap-6 pb-6 border-b border-slate-200">
+    <div class="space-y-2 max-w-5xl">
+      <div class="flex flex-wrap items-center gap-3">
+        <div class="w-1 h-8 bg-teal-600 rounded-full"></div>
+        <h1 class="font-display text-2xl sm:text-[32px] sm:leading-10 font-bold tracking-tight text-slate-900">Employee Activities</h1>
+        <span class="inline-flex items-center h-[22px] px-2 rounded text-xs font-semibold bg-teal-50 text-teal-700 border border-teal-200">Executive View</span>
+      </div>
+      <p class="text-sm leading-relaxed text-slate-500">
+        Closes and attended meetings. Close earns <code class="text-xs text-teal-800 font-mono bg-teal-50 border border-teal-100 px-1 py-0.5 rounded">(base override ?? credited paid revenue) × (rate override ?? default rate)</code>; a meeting earns <code class="text-xs text-teal-800 font-mono bg-teal-50 border border-teal-100 px-1 py-0.5 rounded">(fee override ?? default fee)</code>. Closes for clients with an acquisition record earn nothing here — their commission comes from the 180-day acquisition rule. Record payments in <a href="sales-payouts.html" class="text-teal-700 font-medium hover:underline">Sales Payouts</a>.
+      </p>
+    </div>
+    <div class="flex items-center gap-3 shrink-0">
+      <button type="button" class="inline-flex items-center gap-2 h-9 px-4 rounded-md text-sm font-semibold text-slate-900 bg-white border border-slate-300 hover:bg-slate-100 shadow-sm transition focus:outline-none focus:ring-[3px] focus:ring-teal-600/20">
+        <svg class="w-4 h-4 text-slate-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"/></svg>
+        Export CSV
+      </button>
+      <button type="button" class="inline-flex items-center gap-1.5 h-9 px-4 rounded-md text-sm font-semibold text-white bg-teal-600 hover:bg-teal-700 shadow-sm transition focus:outline-none focus:ring-[3px] focus:ring-teal-600/25">
+        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M12 4v16m8-8H4" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5"/></svg>
+        Add activity
+      </button>
+    </div>
+  </header>
+
+  <!-- KPIs -->
+  <section class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 xl:gap-5">
+    <div class="bg-white border border-slate-200 border-l-[3px] border-l-slate-700 rounded-lg p-5 shadow-card">
+      <div class="flex items-center justify-between">
+        <span class="text-[11px] font-semibold uppercase tracking-[0.04em] text-slate-500">Total Activities</span>
+        <span class="p-1.5 rounded-md bg-slate-100 text-slate-600">
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"/></svg>
+        </span>
+      </div>
+      <div class="mt-3 flex items-baseline gap-2">
+        <span class="font-display text-2xl font-semibold text-slate-900 tnum">5</span>
+        <span class="text-xs font-medium text-slate-500">records</span>
+      </div>
+      <p class="mt-2 text-[13px] text-teal-700 font-medium">100% Attended meetings</p>
+    </div>
+
+    <div class="bg-white border border-slate-200 border-l-[3px] border-l-violet-500 rounded-lg p-5 shadow-card">
+      <div class="flex items-center justify-between">
+        <span class="text-[11px] font-semibold uppercase tracking-[0.04em] text-slate-500">Total Credited Revenue</span>
+        <span class="p-1.5 rounded-md bg-violet-50 text-violet-600">
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"/></svg>
+        </span>
+      </div>
+      <div class="mt-3 font-display text-2xl font-semibold text-slate-900 tnum">PKR 0.00</div>
+      <p class="mt-2 text-[13px] text-slate-500">Pending direct revenue recognition</p>
+    </div>
+
+    <div class="bg-white border border-teal-200 border-l-[3px] border-l-teal-600 rounded-lg p-5 shadow-card ring-1 ring-teal-600/5">
+      <div class="flex items-center justify-between">
+        <span class="text-[11px] font-semibold uppercase tracking-[0.04em] text-teal-700">Total Earned Commission</span>
+        <span class="p-1.5 rounded-md bg-teal-50 text-teal-700">
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"/></svg>
+        </span>
+      </div>
+      <div class="mt-3 font-display text-2xl font-semibold text-teal-700 tnum">PKR 10,000.00</div>
+      <p class="mt-2 text-[13px] text-slate-500">PKR 2,000.00 fixed fee per meeting</p>
+    </div>
+
+    <div class="bg-white border border-slate-200 border-l-[3px] border-l-amber-500 rounded-lg p-5 shadow-card">
+      <div class="flex items-center justify-between">
+        <span class="text-[11px] font-semibold uppercase tracking-[0.04em] text-slate-500">Legacy Paid</span>
+        <span class="p-1.5 rounded-md bg-amber-50 text-amber-600">
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"/></svg>
+        </span>
+      </div>
+      <div class="mt-3 font-display text-2xl font-semibold text-slate-900 tnum">PKR 0.00</div>
+      <p class="mt-2 text-[13px] text-slate-500">Cleared through modern ledger</p>
+    </div>
+  </section>
+
+  <!-- Filters -->
+  <section class="bg-white border border-slate-200 rounded-lg p-4 shadow-card">
+    <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-3">
+      <div>
+        <label class="block text-xs font-semibold text-slate-600 mb-1">Search</label>
+        <div class="relative">
+          <svg class="absolute left-2.5 top-1/2 -translate-y-1/2 w-4 h-4 text-slate-400 pointer-events-none" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"/></svg>
+          <input type="text" placeholder="Search..." class="field w-full pl-8 pr-3"/>
+        </div>
+      </div>
+      <div>
+        <label class="block text-xs font-semibold text-slate-600 mb-1">Client</label>
+        <select class="field w-full px-2.5 py-0"><option selected>All client</option><option>Internal</option></select>
+      </div>
+      <div>
+        <label class="block text-xs font-semibold text-slate-600 mb-1">Project</label>
+        <select class="field w-full px-2.5 py-0"><option selected>All project</option><option>Client Acquisition</option></select>
+      </div>
+      <div>
+        <label class="block text-xs font-semibold text-slate-600 mb-1">Salesperson</label>
+        <select class="field w-full px-2.5 py-0"><option selected>All salesperson</option><option>Aisha</option></select>
+      </div>
+      <div>
+        <label class="block text-xs font-semibold text-slate-600 mb-1">Type</label>
+        <select class="field w-full px-2.5 py-0"><option selected>All type</option><option>Attended meeting</option><option>Close</option></select>
+      </div>
+      <div>
+        <label class="block text-xs font-semibold text-slate-600 mb-1">Activity Date Range</label>
+        <div class="grid grid-cols-2 gap-1.5">
+          <input type="date" aria-label="From" class="field w-full px-2 text-xs tnum"/>
+          <input type="date" aria-label="To" class="field w-full px-2 text-xs tnum"/>
+        </div>
+      </div>
+    </div>
+    <div class="mt-3 pt-3 border-t border-slate-100 flex items-center justify-between text-[13px] text-slate-500">
+      <div class="flex items-center gap-2">
+        <span class="w-2 h-2 rounded-full bg-teal-500"></span>
+        <span>Showing full active history</span>
+      </div>
+      <span class="font-medium text-slate-700 tnum">5 records total</span>
+    </div>
+  </section>
+
+  <!-- Table -->
+  <main class="w-full flex-1">
+    <div class="w-full bg-white border border-slate-200 rounded-lg shadow-card overflow-hidden">
+      <div class="overflow-x-auto w-full">
+        <table class="w-full min-w-[1100px] text-left text-sm border-collapse">
+          <thead class="bg-slate-50 border-b border-slate-200 text-[11px] font-semibold uppercase tracking-[0.04em] text-slate-500 sticky top-0 z-10">
+            <tr>
+              <th scope="col" class="py-3 px-5 whitespace-nowrap">
+                <button type="button" class="inline-flex items-center gap-1 uppercase hover:text-slate-900">
+                  Date
+                  <svg class="w-3.5 h-3.5 text-teal-600" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" clip-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"/></svg>
+                </button>
+              </th>
+              <th scope="col" class="py-3 px-5 whitespace-nowrap">Client / Project</th>
+              <th scope="col" class="py-3 px-5 whitespace-nowrap">Salesperson</th>
+              <th scope="col" class="py-3 px-5 whitespace-nowrap">Type</th>
+              <th scope="col" class="py-3 px-5 whitespace-nowrap">Lead Notes</th>
+              <th scope="col" class="py-3 px-5 text-right whitespace-nowrap">Credited Revenue</th>
+              <th scope="col" class="py-3 px-5 text-right whitespace-nowrap">Earned</th>
+              <th scope="col" class="py-3 px-5 text-right whitespace-nowrap">Legacy Paid</th>
+              <th scope="col" class="py-3 px-5 text-right whitespace-nowrap">Actions</th>
+            </tr>
+          </thead>
+          <tbody class="text-slate-700" id="activity-rows"></tbody>
+          <tfoot class="bg-slate-50 border-t border-slate-200">
+            <tr class="font-semibold">
+              <td colspan="5" class="py-3 px-5 text-[11px] uppercase tracking-[0.04em] text-slate-500">Total (5 activities)</td>
+              <td class="py-3 px-5 text-right tnum text-slate-700 whitespace-nowrap">PKR 0.00</td>
+              <td class="py-3 px-5 text-right tnum text-teal-700 text-[15px] whitespace-nowrap">PKR 10,000.00</td>
+              <td class="py-3 px-5 text-right tnum text-slate-700 whitespace-nowrap">PKR 0.00</td>
+              <td class="py-3 px-5"></td>
+            </tr>
+          </tfoot>
+        </table>
+      </div>
+    </div>
+  </main>
+</div>
+
+<script>
+  // Mock rows (static sample data matching the original design)
+  const dates = ['2026-10-13', '2026-10-01', '2026-09-11', '2026-09-10', '2026-09-04'];
+  const editIcon = '<svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M15.232 5.232l3.536 3.536m-2.036-5.036a2.5 2.5 0 113.536 3.536L6.5 21.036H3v-3.572L16.732 3.732z" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"/></svg>';
+  const delIcon = '<svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"/></svg>';
+  document.getElementById('activity-rows').innerHTML = dates.map(d => `
+    <tr class="h-[44px] border-b border-slate-100 hover:bg-[#FAFAFA] transition-colors">
+      <td class="py-2 px-5 tnum text-slate-600 whitespace-nowrap">${d}</td>
+      <td class="py-2 px-5 font-medium text-slate-900 whitespace-nowrap">Internal <span class="text-slate-400">/</span> Client Acquisition</td>
+      <td class="py-2 px-5 whitespace-nowrap">
+        <div class="flex items-center gap-2">
+          <div class="w-6 h-6 rounded-full bg-teal-50 text-teal-700 ring-1 ring-teal-200 flex items-center justify-center text-[11px] font-bold">A</div>
+          <span class="text-slate-900">Aisha</span>
+        </div>
+      </td>
+      <td class="py-2 px-5 whitespace-nowrap">
+        <span class="inline-flex items-center h-[22px] px-2 rounded text-xs font-medium bg-emerald-50 text-emerald-800 border border-emerald-200">Attended meeting</span>
+      </td>
+      <td class="py-2 px-5 text-slate-400 whitespace-nowrap">—</td>
+      <td class="py-2 px-5 text-right tnum text-slate-500 whitespace-nowrap">PKR 0.00</td>
+      <td class="py-2 px-5 text-right tnum font-semibold text-teal-700 whitespace-nowrap">PKR 2,000.00</td>
+      <td class="py-2 px-5 text-right text-slate-400 whitespace-nowrap">—</td>
+      <td class="py-2 px-5 text-right whitespace-nowrap">
+        <div class="inline-flex items-center gap-1.5">
+          <button type="button" class="inline-flex items-center gap-1 h-7 px-2.5 text-xs font-medium rounded-md bg-white border border-slate-300 text-slate-700 hover:bg-slate-100 hover:text-slate-900 transition">${editIcon} Edit</button>
+          <button type="button" class="inline-flex items-center gap-1 h-7 px-2.5 text-xs font-medium rounded-md bg-white border border-red-200 text-red-700 hover:bg-red-50 transition">${delIcon} Delete</button>
+        </div>
+      </td>
+    </tr>`).join('');
+</script>
+</body>
+</html>
