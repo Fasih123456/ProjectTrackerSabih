@@ -115,7 +115,7 @@ export function renderList(container, cfg, params = {}) {
     } else if (cfg.listView) { // a custom list layout instead of the table (e.g. time entries grouped by day)
       replace(tableHost, cfg.listView(rows, {
         open: (r) => openEditor(cfg, r._rec), remove: (r) => deleteRecord(cfg, r._rec), describe: (r) => cfg.describe(r._rec),
-        colorOf: (id) => chart?.colorOf?.(id) ?? '#9aa7ac',
+        colorOf: (id) => chart?.colorOf?.(id) ?? '#a3a6b4',
         empty: cfg.rows().length ? 'No records match the current search/filters.' : `No ${def.label.toLowerCase()} yet. Use “${cfg.addLabel || 'Add'}” to create the first one.`,
       }));
     } else replace(tableHost, table(rows));

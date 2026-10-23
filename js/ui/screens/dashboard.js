@@ -86,7 +86,7 @@ function trendChart(months, mode) {
     const svg = el('svg', { width: W, height: H, viewBox: `0 0 ${W} ${H}`, 'aria-hidden': 'true' });
     const defs = el('defs', {});
     const grad = el('linearGradient', { id: 'dash-income-fill', x1: 0, x2: 0, y1: 0, y2: 1 });
-    grad.append(el('stop', { offset: '0%', 'stop-color': '#00685f', 'stop-opacity': '0.18' }), el('stop', { offset: '100%', 'stop-color': '#00685f', 'stop-opacity': '0' }));
+    grad.append(el('stop', { offset: '0%', 'stop-color': '#5065a8', 'stop-opacity': '0.18' }), el('stop', { offset: '100%', 'stop-color': '#5065a8', 'stop-opacity': '0' }));
     defs.append(grad); svg.append(defs);
     for (const t of ticks) {
       svg.append(el('line', { x1: L, x2: W - R, y1: y(t), y2: y(t), class: t === 0 ? 'baseline' : 'grid' }));

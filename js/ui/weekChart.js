@@ -11,7 +11,7 @@ import { BASE_SYMBOL } from '../calc/fx.js';
 
 // Fixed categorical order (validated palette); projects beyond the 7th fold into "Other" (grey).
 const PALETTE = ['#2a78d6', '#eb6834', '#1baf7a', '#eda100', '#e87ba4', '#008300', '#6250d6'];
-const OTHER = { key: 'other', name: 'Other projects', color: '#9aa7ac' };
+const OTHER = { key: 'other', name: 'Other projects', color: '#a3a6b4' };
 const DAYS = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'];
 const MONTHS = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
 
